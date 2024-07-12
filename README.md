@@ -134,16 +134,24 @@ resource "kubernetes_deployment" "example" {
 
 }
  
- # Apuntes Abde
+# Inicio Proyecto webApp 
+# Abro Power Shell de Windows
 
-kubernetes minikube con terraform 
- 
 minikube start
 
-eval $(minikube docker-env)             # Unix shells
+eval $(minikube docker-env)              # Unix shells
 
-minikube docker-env | Invoke-Expression # PowerShell
+minikube docker-env | Invoke-Expression  # PowerShell
 
-docker build -t foo:0.0.1 .
+# Creo la imagen del proyecto webApp
+
+docker build -t webapp:0.0.1 .
+
+# Compruebo que se ha creado correctamente la imagen
+
+minikube ssh
+Docker images
+
+# Regreso al git bash
  
- 
+minikube start

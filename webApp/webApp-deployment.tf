@@ -21,7 +21,7 @@ resource "kubernetes_deployment" "webapp" {
       spec {
         container {
           name  = "webapp"
-          image = "192.168.49.2:5000/webapp:latest"
+          image = "webapp:0.0.1"
           image_pull_policy = "IfNotPresent"
           port {
             container_port = 80
