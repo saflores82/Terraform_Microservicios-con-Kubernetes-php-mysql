@@ -7,8 +7,11 @@ resource "kubernetes_persistent_volume" "mysql_pv" {
       storage = "10Gi"
     }
     access_modes = ["ReadWriteOnce"]
-    host_path {
-      path = "/mnt/data/mysql"
+    storage_class_name = "standard"
+    persistent_volume_source {
+      host_path {
+        path = "/mnt/data/mysql"
+      }
     }
   }
 }
@@ -24,6 +27,7 @@ resource "kubernetes_persistent_volume_claim" "mysql_pvc" {
         storage = "10Gi"
       }
     }
+    storage_class_name = "standard"
     volume_name = "mysql-pv"
   }
 }
